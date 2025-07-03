@@ -1,0 +1,21 @@
+{
+	"id": "BizarreAdventure",
+	"name": "BizarreAdventure",
+	"author": ["Ruben"],
+	"description": "An add-on mod for Pokermon",
+	"prefix": "Bizarre",
+	"main_file": "main.lua",
+	"priority": 22,
+	"badge_colour": "07594A",
+	"badge_text_colour": "FFFFFF",
+  "display_name": "BizarreAdventure",
+	"version": "0.0.1",
+	"dependencies": [
+			"Steamodded (>=1.0.0~ALPHA-1303a)",
+      "Lovely (>=0.6)",
+      "Pokermon (>=2.7.0)"
+	],
+  "conflicts": [],
+	"provides": [],
+	"dump_loc": false 
+}
