@@ -1,4 +1,4 @@
-  local axew ={
+    local axew ={
   name = "axew", 
   pos = {x = 4, y = 8},
   config = {extra = {chips = 87, Xmult = 1, Xmult_mod = 0.02, rounds = 3 }},
@@ -17,9 +17,10 @@
     if context.cardarea == G.jokers and context.scoring_hand then
       if context.joker_main then
         return {
-          message = localize{type = 'variable', key = 'a_chips', vars = {card.ability.extra.chips}}, 
+          message = localize{type = 'variable', key = 'a_chips', vars = {card.ability.extra.chips, card.ability.extra.Xmult}}, 
           colour = G.C.CHIPS,
           chip_mod = card.ability.extra.chips,
+          Xmult_mod = card.ability.extra.Xmult,
           card = card
         }
       end
@@ -30,13 +31,6 @@
         return {
           message = localize('poke_dual_chop_ex'),
           colour = G.C.MULT
-        }
-      end
-      if context.joker_main and card.ability.extra.Xmult > 0 then
-        return {
-          message = localize{type = 'variable', key = 'a_mult', vars = {card.ability.extra.Xmult}}, 
-          colour = G.C.MULT,
-          mult_mod = card.ability.extra.Xmult
         }
       end
     end
@@ -60,13 +54,14 @@ local fraxure ={
   atlas = "Pokedex5",
   perishable_compat = false,
   blueprint_compat = true,
-  calculate = function(self, card, context)
+ calculate = function(self, card, context)
     if context.cardarea == G.jokers and context.scoring_hand then
       if context.joker_main then
         return {
-          message = localize{type = 'variable', key = 'a_chips', vars = {card.ability.extra.chips}}, 
+          message = localize{type = 'variable', key = 'a_chips', vars = {card.ability.extra.chips, card.ability.extra.Xmult}}, 
           colour = G.C.CHIPS,
           chip_mod = card.ability.extra.chips,
+          Xmult_mod = card.ability.extra.Xmult,
           card = card
         }
       end
@@ -79,17 +74,11 @@ local fraxure ={
           colour = G.C.MULT
         }
       end
-      if context.joker_main and card.ability.extra.Xmult > 0 and card.ability.extra.Xmult ~= 1  then
-        return {
-          message = localize{type = 'variable', key = 'a_xmult', vars = {card.ability.extra.Xmult}}, 
-          colour = G.C.XMULT,
-          Xmult_mod = card.ability.extra.Xmult
-        }
-      end
     end
     return level_evo(self, card, context, "j_Bizarre_haxorus")
   end
 }
+
 -- Haxorus 612
 local haxorus ={
   name = "haxorus", 
@@ -110,9 +99,10 @@ local haxorus ={
     if context.cardarea == G.jokers and context.scoring_hand then
       if context.joker_main then
         return {
-          message = localize{type = 'variable', key = 'a_chips', vars = {card.ability.extra.chips}}, 
+          message = localize{type = 'variable', key = 'a_chips', vars = {card.ability.extra.chips, card.ability.extra.Xmult}}, 
           colour = G.C.CHIPS,
           chip_mod = card.ability.extra.chips,
+          Xmult_mod = card.ability.extra.Xmult,
           card = card
         }
       end
@@ -132,15 +122,8 @@ local haxorus ={
           colour = G.C.RED
         }
       end
-      if context.joker_main and card.ability.extra.Xmult > 0 then
-        return {
-          message = localize{type = 'variable', key = 'a_mult', vars = {card.ability.extra.Xmult}}, 
-          colour = G.C.MULT,
-          mult_mod = card.ability.extra.Xmult
-        }
-      end
-        end
-      end
+    end
+  end
 }
 
 if Bizarre_config.Axew then
